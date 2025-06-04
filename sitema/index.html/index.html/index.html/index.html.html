@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Versículo do Dia</title>
+    <style>
+        body {
+            background-color: #007BFF;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #versiculo {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: white;
+            color: #007BFF;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Versículo do Dia</h1>
+    <div id="versiculo">Clique no botão para gerar um versículo inspirador!</div>
+    <button onclick="gerarVersiculo()">Gerar Versículo</button>
+    <button onclick="window.location.href='https://linktr.ee/ADGOLA'">Continuar</button>
+
+    <script>
+        const versiculos = ['O Senhor é o meu pastor; nada me faltará. – Salmo 23:1', 'Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito. – João 3:16', 'Tudo posso naquele que me fortalece. – Filipenses 4:13', 'Entrega o teu caminho ao Senhor; confia nele, e ele o fará. – Salmo 37:5', 'Não temas, porque eu sou contigo. – Isaías 41:10', 'Bem-aventurados os que têm fome e sede de justiça, porque serão fartos. – Mateus 5:6', 'O Senhor é bom, um refúgio em tempos de angústia. – Naum 1:7', 'Alegrai-vos na esperança, sede pacientes na tribulação. – Romanos 12:12', 'Clama a mim, e responder-te-ei. – Jeremias 33:3', 'Confia no Senhor de todo o teu coração. – Provérbios 3:5', 'Sede fortes e corajosos. – Josué 1:9', 'Aquietai-vos, e sabei que eu sou Deus. – Salmo 46:10', 'O Senhor pelejará por vós. – Êxodo 14:14', 'Ele cura os de coração quebrantado. – Salmo 147:3', 'A resposta branda desvia o furor. – Provérbios 15:1', 'Lâmpada para os meus pés é tua palavra. – Salmo 119:105', 'Ame o Senhor seu Deus de todo o seu coração. – Deuteronômio 6:5', 'Não se turbe o vosso coração. – João 14:1', 'Buscai ao Senhor enquanto se pode achar. – Isaías 55:6', 'Bem-aventurado o homem que confia no Senhor. – Jeremias 17:7', 'O choro pode durar uma noite, mas a alegria vem pela manhã. – Salmo 30:5', 'Guardarei tua palavra no coração. – Salmo 119:11', 'Sede agradecidos. – Colossenses 3:15', 'O Senhor é a minha luz e a minha salvação. – Salmo 27:1', 'Bendize, ó minha alma, ao Senhor. – Salmo 103:1', 'Lançando sobre ele toda a vossa ansiedade. – 1 Pedro 5:7', 'Fé é a certeza de coisas que se esperam. – Hebreus 11:1', 'Deus é o nosso refúgio e fortaleza. – Salmo 46:1', 'Perdoa, e serás perdoado. – Lucas 6:37', 'Sede imitadores de Deus. – Efésios 5:1', 'A alegria do Senhor é a nossa força. – Neemias 8:10', 'Deleita-te no Senhor. – Salmo 37:4', 'Sê fiel até à morte. – Apocalipse 2:10', 'Eu sou o caminho, a verdade e a vida. – João 14:6', 'Bem-aventurados os pacificadores. – Mateus 5:9', 'Regozijai-vos sempre. – 1 Tessalonicenses 5:16', 'Deus é amor. – 1 João 4:8', 'No amor não há medo. – 1 João 4:18', 'Sujeitai-vos a Deus; resisti ao diabo. – Tiago 4:7', 'Mas buscai primeiro o reino de Deus. – Mateus 6:33', 'Tudo tem o seu tempo determinado. – Eclesiastes 3:1', 'O Senhor é misericordioso e compassivo. – Salmo 145:8', 'Vinde a mim, todos os que estais cansados. – Mateus 11:28', 'Andarás em segurança no teu caminho. – Provérbios 3:23', 'Se Deus é por nós, quem será contra nós? – Romanos 8:31', 'A graça do Senhor é contigo. – 2 Tessalonicenses 3:18', 'Guardai-vos dos falsos profetas. – Mateus 7:15', 'Examinai tudo. Retende o bem. – 1 Tessalonicenses 5:21', 'O Senhor reina! – Salmo 97:1', 'Sê forte e corajoso. – Deuteronômio 31:6', 'Ame o seu próximo como a si mesmo. – Marcos 12:31', 'Cantai ao Senhor um cântico novo. – Salmo 96:1', 'Se alguém está em Cristo, nova criatura é. – 2 Coríntios 5:17', 'Abençoai os que vos perseguem. – Romanos 12:14', 'Orando em todo o tempo. – Efésios 6:18', 'A palavra do Senhor permanece para sempre. – 1 Pedro 1:25', 'Tudo coopera para o bem. – Romanos 8:28', 'O justo viverá da fé. – Romanos 1:17', 'Bem-aventurados os limpos de coração. – Mateus 5:8', 'Louvai ao Senhor. – Salmo 150:6', 'A sabedoria é melhor que o ouro. – Provérbios 16:16', 'Deus é o juiz. – Salmo 75:7', 'Pedi, e dar-se-vos-á. – Mateus 7:7', 'Exaltado seja o nome do Senhor. – Salmo 113:2', 'Melhor é a sabedoria do que as armas de guerra. – Eclesiastes 9:18', 'Espera no Senhor. – Salmo 27:14', 'Confiemos no Senhor. – Salmo 115:11', 'Guardai os meus mandamentos. – João 14:15', 'A palavra do Senhor é viva e eficaz. – Hebreus 4:12', 'Vivei em amor. – Efésios 5:2', 'Chamou-me o Senhor desde o ventre. – Isaías 49:1', 'Servi ao Senhor com alegria. – Salmo 100:2', 'Elevo os meus olhos para os montes. – Salmo 121:1', 'Cantai ao Senhor, bendizei o seu nome. – Salmo 96:2', 'Grandes coisas fez o Senhor por nós. – Salmo 126:3', 'Fomos curados pelas suas feridas. – Isaías 53:5', 'A sua misericórdia dura para sempre. – Salmo 136:1'];
+        function gerarVersiculo() {
+            const index = Math.floor(Math.random() * versiculos.length);
+            document.getElementById('versiculo').innerText = versiculos[index];
+        }
+    </script>
+</body>
+</html>
